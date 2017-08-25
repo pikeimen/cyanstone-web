@@ -1,0 +1,151 @@
+
+<div class="risk-head">
+    <a href="#/stone">
+        <div class="cyan-logo-blue"></div>
+    </a>
+</div>
+<div class="container risk-container" id="riskContainer" ng2-scrollable>
+    <div class="sub-content">
+    <div class="risk-content">
+       
+         <div class="risk-top">
+            <div class="tit">私募基金投资者风险评估</div>
+            <i></i>
+            <p >根据中国证监会、中国基金业协会相关监管要求，我们需要对您的风险识别及承受能力进行评测，请您如实填写以下调查问卷，</p>
+            <p>风险提示：私募基金投资需承担各类风险，本金可能遭受损失。同时，私募基金投资还要考虑市场风险、信用风险、流动性风险、操作风险等各类投资风险。</p>
+        </div>  
+        <div class="line-left"></div><div  class="line-right"></div>    
+        <div class="risk-body">
+            <div class="risk-ask">
+                <div class="risk-title"> 一、基本信息 </div>
+                <div class="risk-tit"  id="question_one"><font>*</font>1、您的年龄介于  </div>
+                <ul>
+                    <li><label [class.on]="answers.one==3"><i></i><input type="radio" (click)="changeAnswer('one',3)" name="question_one"/></label><span>18-30 岁</span></li>
+                    <li><label [class.on]="answers.one==7"><i></i><input type="radio" (click)="changeAnswer('one',7)" name="question_one"/></label><span>31-40 岁</span></li>
+                    <li><label [class.on]="answers.one==9"><i></i><input type="radio" (click)="changeAnswer('one',9)" name="question_one"/></label><span>41-50 岁</span></li>
+                    <li><label [class.on]="answers.one==5"><i></i><input type="radio" (click)="changeAnswer('one',5)" name="question_one"/></label><span>51-60 岁</span></li>
+                    <li><label [class.on]="answers.one==1"><i></i><input type="radio" (click)="changeAnswer('one',1)" name="question_one"/></label><span>高于60岁</span></li>
+                </ul>   
+                
+                <div class="risk-tit"  id="question_two"><font>*</font>2、您的学历   </div>
+                <ul>
+                    <li><label [class.on]="answers.two==1"><i></i><input type="radio" (click)="changeAnswer('two',1)" name="question_two"/></label><span>高中及以下</span></li>
+                    <li><label [class.on]="answers.two==3"><i></i><input type="radio" (click)="changeAnswer('two',3)" name="question_two"/></label><span>中专或大专</span></li>
+                    <li><label [class.on]="answers.two==5"><i></i><input type="radio" (click)="changeAnswer('two',5)" name="question_two"/></label><span>本科</span></li>
+                    <li><label [class.on]="answers.two==7"><i></i><input type="radio" (click)="changeAnswer('two',7)" name="question_two"/></label><span>硕士及以上</span></li>
+                </ul>  
+                
+                <div class="risk-tit" id="question_three"><font>*</font>3、您的职业为    </div>
+                <ul>
+                    <li><label [class.on]="answers.three==1"><i></i><input type="radio" (click)="changeAnswer('three',1)" name="question_three"/></label><span>无固定职业</span></li>
+                    <li><label [class.on]="answers.three==3"><i></i><input type="radio" (click)="changeAnswer('three',3)" name="question_three"/></label><span>专业技术人员</span></li>
+                    <li><label [class.on]="answers.three==5"><i></i><input type="radio" (click)="changeAnswer('three',5)" name="question_three"/></label><span>一般企事业单位员工</span></li>
+                    <li><label [class.on]="answers.three==7"><i></i><input type="radio" (click)="changeAnswer('three',7)" name="question_three"/></label><span>金融行业一般从业人员</span></li>
+                </ul>  
+                
+                <div class="risk-title">  二、财务状况   </div>
+                 <div class="risk-tit" id="question_four"><font>*</font>1、您的家庭可支配年收入为（折合人民币）    </div>
+                <ul>
+                    <li><label [class.on]="answers.four==1"><i></i><input type="radio" (click)="changeAnswer('four',1)" name="question_four"/></label><span>50万元以下 </span></li>
+                    <li><label [class.on]="answers.four==3"><i></i><input type="radio" (click)="changeAnswer('four',3)" name="question_four"/></label><span>50-100万元</span></li>
+                    <li><label [class.on]="answers.four==5"><i></i><input type="radio" (click)="changeAnswer('four',5)" name="question_four"/></label><span>100-500万元 </span></li>
+                    <li><label [class.on]="answers.four==7"><i></i><input type="radio" (click)="changeAnswer('four',7)" name="question_four"/></label><span>500-1000万元</span></li>
+                    <li><label [class.on]="answers.four==9"><i></i><input type="radio" (click)="changeAnswer('four',9)" name="question_four"/></label><span>1000万元以上 </span></li>
+                </ul>   
+                
+                <div class="risk-tit" id="question_five"><font>*</font>2、在您每年的家庭可支配收入中，可用于金融投资（储蓄存款除外）的比例为    </div>
+                <ul>
+                    <li><label [class.on]="answers.five==1"><i></i><input type="radio" (click)="changeAnswer('five',1)" name="question_five"/></label><span>小于10% </span></li>
+                    <li><label [class.on]="answers.five==3"><i></i><input type="radio" (click)="changeAnswer('five',3)" name="question_five"/></label><span>10%至25% </span></li>
+                    <li><label [class.on]="answers.five==6"><i></i><input type="radio" (click)="changeAnswer('five',6)" name="question_five"/></label><span>25%至50% </span></li>
+                    <li><label [class.on]="answers.five==8"><i></i><input type="radio" (click)="changeAnswer('five',8)" name="question_five"/></label><span>大于50%</span></li>
+                </ul>  
+                
+                <div class="risk-title">  三、投资知识   </div>
+                 <div class="risk-tit" id="question_six"><font>*</font>1、您的投资知识可描述为     </div>
+                <ul>
+                    <li><label [class.on]="answers.six==0"><i></i><input type="radio" (click)="changeAnswer('six',0)" name="question_six"/></label><span>有限：基本没有金融产品方面的知识  </span></li>
+                    <li><label [class.on]="answers.six==3"><i></i><input type="radio" (click)="changeAnswer('six',3)" name="question_six"/></label><span>一般：对金融产品及其相关风险具有基本的知识和理解</span></li>
+                    <li><label [class.on]="answers.six==7"><i></i><input type="radio" (click)="changeAnswer('six',7)" name="question_six"/></label><span>丰富：对金融产品及其相关风险具有丰富的知识和理解  </span></li>
+                </ul> 
+                
+                <div class="risk-tit" id="question_seven"><font>*</font>2、您的投资经验可描述为   </div>
+                <ul>
+                    <li><label [class.on]="answers.seven==1"><i></i><input type="radio" (click)="changeAnswer('seven',1)" name="question_seven"/></label><span>除银行储蓄外，基本没有其他投资经验 </span></li>
+                    <li><label [class.on]="answers.seven==3"><i></i><input type="radio" (click)="changeAnswer('seven',3)" name="question_seven"/></label><span>购买过债券、保险等理财产品 </span></li>
+                    <li><label [class.on]="answers.seven==7"><i></i><input type="radio" (click)="changeAnswer('seven',7)" name="question_seven"/></label><span>参与过股票、基金等产品的交易</span></li>
+                    <li><label [class.on]="answers.seven==9"><i></i><input type="radio" (click)="changeAnswer('seven',9)" name="question_seven"/></label><span>参与过权证、期货、期权等产品的交易</span></li>
+                </ul>  
+                
+                  <div class="risk-tit" id="question_eight"><font>*</font>3、您有多少年投资基金、股票、信托、私募证券或金融衍生产品等风险投资品的经验  </div>
+                <ul>
+                    <li><label [class.on]="answers.eight==1"><i></i><input type="radio" (click)="changeAnswer('eight',1)" name="question_eight"/></label><span>没有经验 </span></li>
+                    <li><label [class.on]="answers.eight==3"><i></i><input type="radio" (click)="changeAnswer('eight',3)" name="question_eight"/></label><span>少于2年</span></li>
+                    <li><label [class.on]="answers.eight==5"><i></i><input type="radio" (click)="changeAnswer('eight',5)" name="question_eight"/></label><span>2至5年</span></li>
+                    <li><label [class.on]="answers.eight==7"><i></i><input type="radio" (click)="changeAnswer('eight',7)" name="question_eight"/></label><span>5至10年</span></li>
+                    <li><label [class.on]="answers.eight==9"><i></i><input type="radio" (click)="changeAnswer('eight',9)" name="question_eight"/></label><span>10年以上 </span></li>
+                </ul>  
+                
+                <div class="risk-title">四、投资目标  </div>
+                
+                 <div class="risk-tit" id="question_nine"><font>*</font>1、您计划的投资期限是多久 </div>
+                <ul>
+                    <li><label [class.on]="answers.nine==1"><i></i><input type="radio" (click)="changeAnswer('nine',1)" name="question_nine"/></label><span>1年以下</span></li>
+                    <li><label [class.on]="answers.nine==3"><i></i><input type="radio" (click)="changeAnswer('nine',3)" name="question_nine"/></label><span>1至3年 </span></li>
+                    <li><label [class.on]="answers.nine==5"><i></i><input type="radio" (click)="changeAnswer('nine',5)" name="question_nine"/></label><span>3至5年</span></li>
+                    <li><label [class.on]="answers.nine==7"><i></i><input type="radio" (click)="changeAnswer('nine',7)" name="question_nine"/></label><span>5年以上</span></li>
+                </ul>  
+                
+                    <div class="risk-tit" id="question_ten"><font>*</font>2、您的投资目的是</div>
+                <ul>
+                    <li><label [class.on]="answers.ten==0"><i></i><input type="radio" (click)="changeAnswer('ten',0)" name="question_ten"/></label><span>资产保值</span></li>
+                    <li><label [class.on]="answers.ten==3"><i></i><input type="radio" (click)="changeAnswer('ten',3)" name="question_ten"/></label><span>资产稳健增长</span></li>
+                    <li><label [class.on]="answers.ten==7"><i></i><input type="radio" (click)="changeAnswer('ten',7)" name="question_ten"/></label><span>资产迅速增长</span></li>
+                </ul> 
+                
+                 <div class="risk-title">五、风险偏好  </div> 
+                 <div class="risk-tit" id="question_eleven"><font>*</font>1、以下哪项描述最符合您的投资态度 </div>
+                <ul>
+                    <li><label [class.on]="answers.eleven==0"><i></i><input type="radio" (click)="changeAnswer('eleven',0)" name="question_eleven"/></label><span>厌恶风险，不希望本金损失，希望获得稳定回报</span></li>
+                    <li><label [class.on]="answers.eleven==3"><i></i><input type="radio" (click)="changeAnswer('eleven',3)" name="question_eleven"/></label><span>保守投资，不希望本金损失，愿意承担一定幅度的收益波动</span></li>
+                    <li><label [class.on]="answers.eleven==5"><i></i><input type="radio" (click)="changeAnswer('eleven',5)" name="question_eleven"/></label><span>寻求资金的较高收益和成长性，愿意为此承担有限本金损失</span></li>
+                    <li><label [class.on]="answers.eleven==7"><i></i><input type="radio" (click)="changeAnswer('eleven',7)" name="question_eleven"/></label><span>希望赚取高回报，愿意为此承担较大本金损失</span></li>
+                </ul> 
+                
+                  <div class="risk-tit" id="question_twelve"><font>*</font>2、假设有两种投资：投资A预期获得10%的收益，可能承担的损失非常小：投资B预期获得30%的收益，但可能承担较</div>
+                <ul>
+                    <li><label [class.on]="answers.twelve==0"><i></i><input type="radio" (click)="changeAnswer('twelve',0)" name="question_twelve"/></label><span>全部投资于收益小且风险较小的A</span></li>
+                    <li><label [class.on]="answers.twelve==3"><i></i><input type="radio" (click)="changeAnswer('twelve',3)" name="question_twelve"/></label><span>同时投资于A和B，但大部分资金投资于收益较小且风险较小的A</span></li>
+                    <li><label [class.on]="answers.twelve==5"><i></i><input type="radio" (click)="changeAnswer('twelve',5)" name="question_twelve"/></label><span>同时投资于A和B，但大部分资金投资于收益较大且风险较大的B</span></li>
+                    <li><label [class.on]="answers.twelve==7"><i></i><input type="radio" (click)="changeAnswer('twelve',7)" name="question_twelve"/></label><span>全部投资于收益较大且风险较大的B</span></li>
+                </ul> 
+                
+                 <div class="risk-tit" id="question_thirteen"><font>*</font>3、您认为自己能承受的最大投资损失是多少 </div>
+                <ul>
+                    <li><label [class.on]="answers.thirteen==1"><i></i><input type="radio" (click)="changeAnswer('thirteen',1)" name="question_thirteen"/></label><span>10%以内</span></li>
+                    <li><label [class.on]="answers.thirteen==3"><i></i><input type="radio" (click)="changeAnswer('thirteen',3)" name="question_thirteen"/></label><span>10%-30%</span></li>
+                    <li><label [class.on]="answers.thirteen==5"><i></i><input type="radio" (click)="changeAnswer('thirteen',5)" name="question_thirteen"/></label><span>30%-50%</span></li>
+                    <li><label [class.on]="answers.thirteen==7"><i></i><input type="radio" (click)="changeAnswer('thirteen',7)" name="question_thirteen"/></label><span>超过50%</span></li>
+                </ul> 
+                 <div class="risk-title">免责说明 </div>
+                 <div class="risk-tit risk-tit2">1. 投资者应确认在进行本问卷调查时，所填写的选项表达真实、准确、完整。 </div>
+                 <div class="risk-tit risk-tit2">2. 调查问卷为了解投资者风险认知水平和风险承受能力提供参考。本次调查在任何方面均不构成对投资者的投资建议，也不对投资者的投资决策形成实质影响。若投资者根据调查结果进行投资，完全属于投资者的独立行为，相应的风险亦由投资者独立承担。 </div>
+                <input type="checkbox" class="risk-checkbox" (click)="changeCheck()"/>
+                 <div class="risk-tit risk-tit3">
+                     
+                     <span>我已阅读并知晓以上投资风险说明！</span>
+                 </div>
+                 <div class="risk-button">
+                     <button (click)="submitAnswer()">提交问卷</button>
+                     <font>请填写问卷信息！请阅读并同意免责说明！</font>
+                 </div>
+                 <div class="line-left no-bottom"></div><div  class="line-right no-bottom"></div>  
+            </div>    
+        </div>        
+    </div>
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div>
+</div>        
+ 
+ <alert [title]="alertObject.title" [message]="alertObject.message" [hidden]="alertObject.hidden"></alert>
+ 

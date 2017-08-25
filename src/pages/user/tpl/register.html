@@ -1,0 +1,193 @@
+<header [activeItem]="5" [transparent]="false"></header>
+
+<div class="container">
+    <div class="sub-content success-sub-content">
+    <div class="content register success-content">
+        <div >
+		  	<p class="title">注册</p>
+                <div class="half-part left-part">
+                    <form name="f" (submit)="submit(f)" [formGroup]="f">
+                        <div class="input-item common-text">
+                            <label>手机号：</label>
+                            <div class="input-area">
+                                <input 
+                                type="text"
+                                name="mobile"
+                                [(ngModel)]="params.mobile"
+                                formControlName="mobile"
+                                placeholder="请输入手机号"
+                                (keyup)="mobileChange()"
+                                />
+                                <div class="error-box" *ngIf="(!f.controls.mobile.valid && !f.controls.mobile.pristine) || (touched && !f.controls.mobile.valid)">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span *ngIf="f.controls.mobile.errors.required">请输入手机号</span>
+                                        <span *ngIf="f.controls.mobile.errors.invalidMobile && !f.controls.mobile.errors.required">手机号格式不正确</span>
+                                    </div>
+                                </div>
+                                <div class="error-box" *ngIf="f.controls.mobile.valid && registFlag">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span>手机号已注册</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-item common-text">
+                            <label>登录密码：</label>
+                            <div class="input-area">
+                                <input 
+                                type="password"
+                                name="password"
+                                [(ngModel)]="params.password"
+                                formControlName="password"
+                                placeholder="请输入登录密码"
+                                />
+                                <div class="error-box" *ngIf="(!f.controls.password.valid && !f.controls.password.pristine)  || (touched && !f.controls.password.valid)">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span *ngIf="f.controls.password.errors.required">请输入登录密码</span>
+                                        <span *ngIf="f.controls.password.errors.invalidPassword && !f.controls.password.errors.required">密码必须为：6-20位数字、字母、下划线中的两种</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="input-item common-text">
+                            <label>确认密码：</label>
+                            <div class="input-area">
+                                <input 
+                                type="password"
+                                name="rePassword"
+                                [(ngModel)]="params.rePassword"
+                                formControlName="rePassword"
+                                placeholder="请再次确认密码"
+                                />
+                                <div class="error-box" *ngIf="(!f.controls.rePassword.valid && !f.controls.rePassword.pristine) || (touched && !f.controls.rePassword.valid)">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span *ngIf="f.controls.rePassword.errors.required">请再次输入密码</span>
+                                        <span *ngIf="f.controls.rePassword.errors.invalidPassword && !f.controls.rePassword.errors.required">密码长度6-20位，至少包含数字、字母或者下划线中的两种</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="error-box" *ngIf="f.controls.rePassword.valid && f.controls.password.value != f.controls.rePassword.value">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span>两次密码不一致</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-item common-text ver-code">
+                            <label>图形验证码：</label>
+                            <div class="input-area">
+                                <input 
+                                type="text"
+                                name="imgVerCode"
+                                [(ngModel)]="inputImgVerCode"
+                                formControlName="imgVerCode"
+                                placeholder="请输入图形验证码"
+                                />
+                                <div class="ver"><img [src]="imgVerCodeSrc" (click)="random()"/></div>
+                                <div class="error-box" *ngIf="(!f.controls.imgVerCode.valid && !f.controls.imgVerCode.pristine) || !imgVerFlag  || (touched && !f.controls.imgVerCode.valid)">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span *ngIf="imgVerFlag && f.controls.imgVerCode.errors.required">请输入验证码</span>
+                                        <span *ngIf="!imgVerFlag">验证码错误!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-item common-text ver-code">
+                            <label>手机验证码：</label>
+                            <div class="input-area">
+                                <input 
+                                type="text"
+                                name="mobileCode"
+                                [(ngModel)]="params.mobileCode"
+                                formControlName="mobileCode"
+                                placeholder="请输入手机验证码"
+                                (keyup)="mobileCodeChange()"
+                                />
+                                <div class="ver">
+                                    <button type="button" [ngClass]="{'disabled':!f.controls.mobile.valid || registFlag}" (click)="getMobileCode()" [disabled]="!f.controls.mobile.valid || second>=0 || registFlag">
+                                        <span *ngIf="second > 0">{{second}}s</span>
+                                        <span *ngIf="second <= 0">获取验证码</span>
+                                    </button>
+                                </div>
+                                <div class="error-box"  *ngIf="(!f.controls.mobileCode.valid && !f.controls.mobileCode.pristine)  || (touched && !f.controls.mobileCode.valid)">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span>请输入手机验证码</span>
+                                    </div>
+                                </div>
+                                <div class="error-box"  *ngIf="f.controls.mobileCode.valid && !params.uniqueCode && touched">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span>请先获取手机验证码</span>
+                                    </div>
+                                </div>
+                                <div class="error-box"  *ngIf="getIn60s">
+                                    <div class="error-tip">
+                                        <i></i>
+                                        <span>60秒内请勿连续获取短信验证码</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <div class="form-footer agreement">
+                                <div class="input-area">
+                                    <label>
+                                        <input 
+                                        type="checkbox" 
+                                        name="agreement"
+                                        [(ngModel)]="agreement"
+                                        formControlName="agreement"
+                                        />我已经阅读并同意了</label>
+                                    <a href="javascript:void(0);">《合格投资者认定》</a>&nbsp;&nbsp;&nbsp;
+                                    <a href="#/webAgreement" target="_blank">《网站服务协议》</a>
+                                    <div class="error-box"  *ngIf="(touched || !f.controls.agreement.pristine)  && !f.controls.agreement.value">
+                                        <div class="error-tip">
+                                            <i></i>
+                                            <span>请阅读相关注册协议</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="input-item">
+                            <div class="form-footer">
+                                <button 
+                                name="submit"
+                                class="submit"
+                                type="submit" 
+                                [ngClass]="{'disabled':requestFlag}" 
+                                [disabled]="requestFlag">
+                                    <span *ngIf="requestFlag">正在提交...</span>
+                                    <span *ngIf="!requestFlag">立即注册</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            
+                <div class="half-part right-part">
+                    <p class="right-title">合格投资者认定</p>
+                    <div class="statement">
+                        <p>根据《私募投资基金监督管理暂行办法》第四章第十四条规定：“私募基金管理人、私募基金销售机构不得向合格投资者之外的单位和个人募集资金，不得通过报刊、电台、电视、互联网等公众传播媒体或者讲座、报告会、分析会和布告、传单、手机短信、微信、博客和电子邮件等方式，向不特定对象宣传推介”。</p>
+                        <P>苍石资产谨遵《私募投资基金监督管理暂行办法》之规定，只向特定的合格投资者展示相关私募投资基金产品。</P>
+                        <p>阁下如有意进行私募投资基金投资且满足《私募投资基金监督管理暂行办法》关于“合格投资者”标准之规定，即具备相应风险识别能力和风险承担能力，投资于单只私募基金的金额不低于100万元，且个人金融类资产不低于300万元或者最近三年个人年均收入不低于50万元人民币。请阁下详细阅读本提示，并注册成为苍石资产特定的合规投资者。</p>                    
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div>    
+</div>

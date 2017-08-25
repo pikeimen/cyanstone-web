@@ -1,0 +1,110 @@
+.news-content{
+    background-color: #fff;
+    /*margin-top:20px;*/
+    padding:0px 30px;
+        margin-bottom: 20px;
+}
+.layout-list{
+    position: relative;
+    padding-bottom: 100px;
+    display: none;
+}
+.layout-list.active{
+    display: block;
+}
+.layout-list .news-img{
+    width:20%;
+    display: inline-block;
+       float: left;
+}
+.layout-list .news-img i{
+     background-image:  url(../../../assets/img/test.jpg);
+         height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 190px;
+        display: block;
+}
+.layout-list .news-info{
+    width:78%;
+    line-height: 25px;
+    display: inline-block;
+    height: 100px;
+}
+.layout-list li{
+    padding: 30px 0px;
+    border-bottom:1px dashed #ddd; 
+}
+.layout-list li:last-child{
+    border-bottom: none;
+}
+.layout-list li:hover{
+    cursor: pointer;
+}
+.layout-list .news-info .news-title{
+    color: #333;
+    font-size: 16px;
+}
+.layout-list .news-info .news-time{
+    color: #333333;
+        margin-top: 5px;
+}
+.layout-list .news-info .news-cont{
+    color: #7e7e7e;
+}
+.layout-box{
+    position: relative;
+    padding-bottom: 100px;
+    display: none;
+    margin: 0px -30px;
+}
+.layout-box.active{
+    display: block;
+}
+.layout-box .layout-box-top{
+      width: 100%;
+    height: 223px;
+    background: url(../../../assets/img/bg_11.jpg);
+    /*margin-top: 20px;*/
+   position: relative;
+}
+.box-list{
+     margin-top: 30px;
+}
+.box-list .box{
+    border: 1px solid #ddd;
+    width: 31%;
+    height: 80px;
+    display: inline-block;
+    margin-left: 1%;
+    margin-top: 20px;
+    margin-right: 1%;
+}
+.box-list .box:hover{
+    cursor: pointer;
+}
+.box-list .box i{
+    width: 49px;
+    height: 48px;
+    background: url(../../../assets/img/icon/icon-23.png);
+    display: block;
+    top: 50%;
+    position: relative;
+    margin-top: -25px;
+    left: 20px;
+    background-repeat: no-repeat;
+}
+.box-list .box p{
+    margin-left: 90px;
+    font-size: 14px;
+    color: #333333;
+    margin-top: -5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 15px;
+    width: 70%;
+    white-space: nowrap;
+}
+.box-list .box p:last-child{
+    color:#bbbbbb;
+}

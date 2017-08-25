@@ -1,0 +1,64 @@
+<header [activeItem]="3" [transparent]="false"></header>
+ 
+<div class="container ">
+     <div class="loading"  *ngIf="loading"><i></i></div>  
+     <div class="sub-content">
+	 <div class="content" *ngIf="!loading">
+         <div class="navigation-bar">
+                <a href="#/stone">首页</a> > <a href="{{navBar.prevUrl}}">{{navBar.prevText}}</a> > <a class="active">{{navBar.currentTitle}}</a>
+         </div>
+         <div class="news-info-content">
+                <div class="news-info-title">{{nowNewsInfo.title}}</div>
+                <div class="news-info-body">
+                    <p [innerHTML]="nowNewsInfo.content"></p>
+                </div>
+                <div class="news-info-download" *ngIf="nowNewsInfo.newsFiles && nowNewsInfo.newsFiles.length > 0">
+                     <span class="box" *ngFor="let file of nowNewsInfo.newsFiles;let i=index" (click)="downloadFile(i)">
+                     <i></i>
+                     <p>{{file.filename | fileFilter}}</p>
+                     <p>{{file.filename | fileFilter:'ext'}}</p>
+                    </span>
+                    
+                </div>
+                <div class="news-info-author">
+                   <font *ngIf="nowNewsInfo.author">{{nowNewsInfo.author}}</font>
+                   <font *ngIf="!nowNewsInfo.author">--</font>
+                </div> 
+                 <div class="news-info-time">
+                   {{nowNewsInfo.publishTime|dateFilter:1}}
+                </div>    
+                <div class="news-info-bottom">
+                    <div class="bottom-left" [ngClass]="{'noactive':!preNewsInfo}">
+                        <span (click)="prevNews()">上一篇：</span>
+                        <span (click)="prevNews()">
+                            <font *ngIf="preNewsInfo">{{preNewsInfo.title}}</font>
+                            <font *ngIf="!preNewsInfo">没有了</font>
+                        </span>
+                    </div>
+                     <div class="bottom-right" [ngClass]="{'noactive':!nextNewsInfo}">
+                         <span (click)="nextNews()">下一篇：</span>
+                        <span (click)="nextNews()">
+                            <font *ngIf="nextNewsInfo">{{nextNewsInfo.title}}</font>
+                            <font *ngIf="!nextNewsInfo">没有了</font>
+                        </span>
+                     </div>
+                </div>
+         </div>   
+             
+        </div>
+        <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div>
+    <div class="bdsharebuttonbox">
+        <span>分享</span>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        
+     </div>
+<!--<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}}
+</script>-->
+ </div>   
+ 
+ <alert   [message]="alertObject.message" [hidden]="alertObject.hidden"></alert>

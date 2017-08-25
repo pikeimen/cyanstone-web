@@ -1,0 +1,38 @@
+<div class="carousel-body carousel-stone-body" [ngStyle]="{'transform':transformBody}">
+    <!--<button (click)="addAnimate()"></button>-->
+    <div class="carousel-page carousel-one" [ngClass]="{'animateIn-one':animateOne}"  >
+        <div class="carousel-bg carousel-bg1"></div>
+        <div class="main-content">
+            <div class="carousel-qiqiu am-qiqiu move-qiqiu"></div>
+            <div class="words words1" ></div>
+        </div>
+    </div>  
+     <div class="carousel-page carousel-two" [ngClass]="{'animateIn-two':animateTwo}"  >
+        <div class="carousel-bg carousel-bg2"></div>
+        <div class="main-content">
+            <div class="words words2"  ></div>
+        </div>
+    </div>  
+     <div class="carousel-page carousel-three" [ngClass]="{'animateIn-three':animateThree}"  >
+        <div class="carousel-bg carousel-bg3" ></div>
+        <div class="main-content">
+            <div class="carousel-kind am-kind move-kind"></div>
+            <div class="words words3" ></div>
+        </div>
+    </div>    
+</div>
+
+<div id="go_next" class="iconfont go-next"  (click)="toggerTab(currentTab+1)"></div>
+
+<div class="pagination">
+    <a href="javascript:;"  data-page="0" [class.active]="currentTab==0"  (click)="toggerTab(0)">
+        <i class="dotted"></i>
+    </a>
+    <a href="javascript:;"  data-page="1"  [class.active]="currentTab==1"  (click)="toggerTab(1)">
+        <i class="dotted"></i>
+    </a>
+    <a href="javascript:;" data-page="2"  [class.active]="currentTab==2"  (click)="toggerTab(2)">
+        <i class="dotted"></i>
+    </a>
+   
+</div>

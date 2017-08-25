@@ -1,0 +1,538 @@
+body{
+	font-family: 'microsoft yahei';
+}
+
+ol, ul{
+	margin: 0;
+    padding: 0;
+    list-style: none;
+}
+@font-face {
+        font-family: 'alipayhome';
+        src: url('../../fonts/font_1431504418_7238076.eot'); /* IE9*/
+        src: url('../../fonts/font_1431504418_7238076.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../../fonts/font_1431504418_7238076.woff') format('woff'), /* chrome、firefox */
+        url('../../fonts/font_1431504418_7238076.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('../../fonts/font_1431504418_7238076.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+/****页面头部css部分**** code begin ******************************************************************************************/
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    background-color: #006986;
+}
+.bg-trans{
+	background-color: transparent!important;
+}
+.header .am-header-inner {
+    position: relative;
+    z-index: 2;
+}
+.header .mainNav, .mainMenu{
+	/*height: 80px;*/
+}
+.header .channel .downlist .close-menu {
+    height: 52px;
+}
+.header .channel .downlist .close-menu {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    font-size: 24px;
+    color: #999;
+    background: url(../../img/close-icon.png) no-repeat center;
+}
+.header .laymid {
+    width: 1200px;
+    margin: 0 auto;
+}
+.header .cyan-logo {
+    display: block;
+    width: 132px;
+    position: relative;
+    left: 0;
+    top: 20px;
+    float: left;
+    height: 40px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-image: url(../../img/logo.png);
+}
+.header .mainMenu {
+    margin-left: 300px;
+}
+.header .mainMenu .am-button-innerNav{
+	color: #fff;
+	font-size: 12px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+.header .mainMenu .button-login{
+	border: solid 1px #ccc;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.header .channel {
+    /*height: 80px;
+    line-height: 80px;*/
+    float: left;
+    position: relative;
+}
+.header .channel .channel-a, .header .channel .downlist a {
+    padding: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    outline: none;
+}
+.header .channel .active{
+    margin: 0 30px;
+    padding: 30px 0;
+    /*padding: 0;*/
+    border-bottom: solid 3px #fff;
+}
+.header .channel .downlist .tp a {
+    font-size: 14px;
+    color: #333;
+}
+.header .channel .downlist .tp a:hover {
+	color: #fff;
+    background-color: #4285f4;
+}
+.header .channel .downlist a {
+    line-height: 28px;
+    padding: 0 5px;
+    margin: 0 -5px;
+}
+.header .channel-a {
+    padding: 0 30px;
+    color: #333;
+}
+.header .channel .downlist {
+    display: none;
+    box-shadow: 0 0 2px rgba(128,128,128,0.5);
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 100%;
+    padding: 0 5px 0;
+    text-align: center;
+    background: #ffffff;
+}
+.header .channel .downlist {
+    max-height: 0;
+    -webkit-transition: max-height 5s 0s ease-in-out;
+    -moz-transition: max-height 5s 0s ease-in-out;
+    -o-transition: max-height 5s 0s ease-in-out;
+    -ms-transition: max-height 5s 0s ease-in-out;
+    transition: max-height 5s 0s ease-in-out;
+    -webkit-transform-origin: 50% 0;
+    -moz-transform-origin: 50% 0;
+    -o-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+}
+.header .hover .downlist {
+    display: block;
+    max-height: 999px;
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -moz-animation: slideDown .5s ease-in-out;
+    -o-animation: slideDown .5s ease-in-out;
+    -ms-animation: slideDown .5s ease-in-out;
+    -webkit-animation: slideDown .5s ease-in-out;
+    animation: slideDown .5s ease-in-out;
+    -moz-transition: max-height 1s ease-in-out;
+    -o-transition: max-height 1s ease-in-out;
+    -webkit-transition: max-height 1s ease-in-out;
+    -ms-transition: max-height 1s ease-in-out;
+    transition: max-height 1s ease-in-out
+}
+
+@keyframes slideDown {
+    0% {
+        -moz-transform: scaleY(0.1);
+        -ms-transform: scaleY(0.1);
+        -o-transform: scaleY(0.1);
+        -webkit-transform: scaleY(0.1);
+        transform: scaleY(0.1)
+    }
+    40% {
+        -moz-transform: scaleY(1.04);
+        -ms-transform: scaleY(1.04);
+        -o-transform: scaleY(1.04);
+        -webkit-transform: scaleY(1.04);
+        transform: scaleY(1.04)
+    }
+    60% {
+        -moz-transform: scaleY(0.98);
+        -ms-transform: scaleY(0.98);
+        -o-transform: scaleY(0.98);
+        -webkit-transform: scaleY(0.98);
+        transform: scaleY(0.98)
+    }
+    80% {
+        -moz-transform: scaleY(1.02);
+        -ms-transform: scaleY(1.02);
+        -o-transform: scaleY(1.02);
+        -webkit-transform: scaleY(1.02);
+        transform: scaleY(1.02)
+    }
+    100% {
+        -moz-transform: scaleY(1);
+        -ms-transform: scaleY(1);
+        -o-transform: scaleY(1);
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1)
+    }
+}
+.header .channel .downlist .together {
+    padding-bottom: 0;
+}
+
+.header .channel .downlist .ft {
+    border-top: 1px #eeeeee solid;
+    margin-top: 10px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 16px;
+    color: #999;
+}
+.header .hasleftline {
+    padding-left: 20px;
+    margin-left: 20px;
+    padding: 33px 0;
+}
+/****页面头部css部分**** code end ***********************************************************************************************/
+
+
+/****页面尾部css部分**** code begin ***********************************************************************************************/
+.footer {
+    height: 65px;
+    z-index: 101;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #666666;
+    border-top: solid 1px #d9d9d9;
+    background-color: #fff;
+}
+.footer .ft-content {
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+.footer .products {
+    padding-top: 15px;
+}
+.footer .product {
+    float: left;
+}
+.footer .ft-content .icon {
+    float: left;
+    display: block;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.footer .icon-email{
+    background-image: url(../../img/icon/icon-1.png);
+}
+.footer .icon-mobile{
+    background-image: url(../../img/icon/icon-2.png);
+}
+.footer .icon-erweima{
+    background-image: url(../../img/icon/icon-3.png);
+}
+.footer .product .tips {
+    position: relative;
+}
+.footer .product .tips p, 
+.footer .product .tips span {
+    line-height: 1;
+}
+.footer .product .tips span {
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 15px;
+}
+.footer .product .tips span a{
+    color: #666666;
+    text-decoration: none;
+}
+.footer .products .connect-cyan{
+    float: right;
+    font-size: 12px;
+}
+.footer .products .connect-cyan ul li{
+    float: left;
+    margin-right: 60px;
+}
+.footer .connect-cyan .icon-part{
+    float: left;
+    margin: 3px 10px 0 0;
+    position: relative;
+}
+.footer .connect-cyan .icon-part .erweima{
+    display: none;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -88px;
+    left: -23px;
+}
+.footer ul li:hover .icon-part .erweima{
+    display: block;
+}
+.footer .icon-part .erweima img{
+    width: 70px;
+    height: 70px;
+}
+.footer .icon-part .erweima .inner{
+    position: relative;
+    height: 100%;
+    background: #c3c5cb url(../../../assets/img/erweima.jpg) no-repeat center center;
+    background-size: 90%;
+}
+.erweima .inner i{
+    width: 0;
+    height: 0;
+    border-top: 5px solid #ccc;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    bottom: -10px;
+    left: 33px;
+    z-index: 2;
+}
+.footer .connect-cyan .info-part{
+    float: left;
+}
+.footer .connect-cyan .info-part p:first-child{
+    margin-bottom: 5px;
+}
+.footer .connect-cyan .info-part .mail-link{
+    color: inherit;
+}
+/****页面尾部css部分**** code end ***********************************************************************************************/
+
+/****其他公共css部分**** code begin ***********************************************************************************************/
+.container{
+    padding: 0;
+    width: 100%;
+    top: 80px;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    z-index: 2;
+    overflow: auto;
+}
+.container .sub-content{
+    background-color: #f5f5f5;
+}
+.container .content{
+    width: 1200px;
+    margin: 0 auto;
+}
+.container.hasSubMenu{
+     top: 134px;
+     margin-top: 20px;
+}
+/*二级菜单*/
+submenu{
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+    top: 80px;
+}
+/****其他公共css部分**** code end ***********************************************************************************************/
+
+
+/********404页面*******/
+.error404-body i{
+     background: url(../../../assets/img/404.jpg);
+    width: 418px;
+    height: 200px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    left: 50%;
+    margin-left: -360px;
+    background-size: 86%;
+    background-repeat: no-repeat;
+}
+.error404-body  ul{
+    position: absolute;
+       top: 50%;
+    left: 50%;
+    margin-top: -69px;
+    margin-left: 20px;
+    line-height: 22px;
+    font-size: 14px;
+}
+.error404-body  ul li:first-child{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: .1s opacity linear;
+    transition: .1s opacity linear;
+}
+.backdrop.hidden,.alert-main.hidden{
+    visibility:hidden;
+    opacity: 0;
+}
+.alert-main{
+    padding: 20px 50px 30px;
+    z-index: 9999;
+    background-color: #fff;
+    position: absolute;
+    border: 3px solid #ccc;
+    left: 50%;
+     top: 35%;
+   
+}
+.alert-main .alert-title{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.alert-main .alert-body{
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+.alert-main .alert-button{
+    text-align: center;
+    margin-top: 30px;
+}
+.alert-button button{
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    height: 35px;
+    width: 120px;
+    border-radius: 3px;
+}
+/**********内部导航***********/
+.navigation-bar{
+    color:#999999;
+    padding: 20px 0;
+}
+.navigation-bar a,.navigation-bar a:hover{
+     color:#999999;
+
+}
+.navigation-bar a.active{
+     color:#787878;
+
+}
+
+/*首页底部颜色*/
+.stone-home .footer .product .tips span a{
+    color: #ffffff;
+}
+.stone-home .footer .icon-email{
+        background-image: url(../../img/icon/icon-01.png);
+}
+.stone-home .footer .icon-mobile{
+        background-image: url(../../img/icon/icon-02.png);
+}
+.stone-home .footer .icon-erweima{
+        background-image: url(../../img/icon/icon-03.png);
+}
+
+/**加载**/
+.loading{
+   position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(255,255,255,.8);*/
+    background-color: #f5f5f5;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: .1s opacity linear;
+    transition: .1s opacity linear;
+}
+.loading i{
+      background: url(../../../assets/img/loading.gif) no-repeat center center;
+      height: 48px;
+      width:48px; 
+      background-size: 60% 60%;
+     display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -34px;
+    left: 50%;
+    margin-left: -34px;
+}
+
+/*************分页****************/
+.page-num{
+        position: absolute;
+    bottom: 50px;
+   color: #7e7e7e;
+    font-size: 15px;
+    height: 35px;
+    text-align: center;
+        width: 1200px;
+    margin: 0 auto;
+}
+.page-num button{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+}
+.page-num button.noactive{
+    pointer-events: none;
+    background-color: #e5e4e2;
+    color: #fff;
+    width: 80px;
+}
+.page-num span{
+    width: 35px;
+    height: 100%;
+    display: inline-block;
+    padding-top: 5px;
+}
+.page-num span:hover{
+    color: #4285f4;
+    border: 1px solid #4285f4;
+    cursor: pointer;
+}
+.page-num span.active{
+    color: #4285f4;
+    border: 1px solid #4285f4;
+}
+.page-num button:visited,.page-num button:link{
+    border: none;
+}

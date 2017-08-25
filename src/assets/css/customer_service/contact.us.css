@@ -1,0 +1,89 @@
+ .contact-top{
+       width: 100%;
+      height: 223px;
+      background: url(../../../assets/img/bg_6.jpg);
+      /*margin-top: 20px;*/
+     position: relative;
+  }
+	
+  .contact-body{
+       background-color:#fff; 
+      padding-top: 20px;
+      margin-bottom: 20px;
+          height: 400px;
+  }
+  .contact-body .body-left{
+      width:68%;
+       float: left;
+  }
+  .contact-body .body-right{
+      width:32%;
+       float: left;
+  }
+  .body-left .left-address,.body-left .left-phone,.body-left .left-weixin,.body-left .left-email{
+      width:50%;
+      padding: 30px 60px;
+      color:#7e7e7e;
+      float: left;
+  }
+  .body-left .left-phone,.body-left .left-email{
+       width:44%;
+  }
+  .body-left i{
+      float: left;
+      display: block;
+      
+  }
+  .left-address i{
+      background: url(../../../assets/img/icon/icon-12.png);
+      width: 41px;
+      height: 34px;
+  }
+  .left-phone i{
+      background: url(../../../assets/img/icon/icon-11.png) no-repeat -7px 1px;
+      width: 29px;
+      height: 44px;
+  }
+  .left-weixin i{
+      background: url(../../../assets/img/icon/icon-13.png);
+      width: 40px;
+      height: 35px;
+  }
+  .left-email i{
+      background: url(../../../assets/img/icon/icon-14.png) no-repeat -6px 0px;
+      width: 37px;
+      height: 33px;
+  }
+  .left-address span,.left-phone span,.left-weixin span,.left-email span{
+      font-size: 16px;
+      padding: 4px 10px;
+      display: inline-block;
+       color:#333333;   
+  }
+  .left-address div,.left-phone div,.left-weixin div,.left-email div{
+      margin-top:20px; 
+     
+      width: 100%; 
+      font-size: 14px;
+  }
+  .left-weixin div{
+      width: auto;
+      margin-right: 80px;
+  }
+  .left-weixin b{
+       background: url(../../../assets/img/erweima.jpg);
+       width: 80px;
+      height: 80px;
+      display: block;
+       margin-top: -68px;
+      float: right;
+  }
+   baidu-map{
+            width: 500px;
+            height: 400px;
+            display: block;
+  }
+  .map-div{
+    position: relative;
+    margin-left: -80px;
+  }

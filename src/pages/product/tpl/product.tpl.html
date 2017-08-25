@@ -1,0 +1,124 @@
+<header [activeItem]="2" [transparent]="false"></header>
+   
+<div class="container product-container">
+    <div class="sub-content">
+	 <div class="content">
+        <div class="product-risk"  *ngIf="!showProduct">
+           
+        </div>
+        <div class="product-list"  *ngIf="showProduct" >
+              <div class="navigation-bar"  *ngIf="productListType == '1'">
+                <a href="#/stone">首页</a> > <a class="active">系列产品</a>
+            </div>
+            <div *ngIf="productListType == '1'">
+             <div class="product-chart-list" *ngFor="let pro of productList;let i = index" (click)="goToDetail(i)">
+                 <div class="chart-list-title">{{pro.nameAbbr}} <span [ngClass]="{'bg-org':pro.tagName=='泰安', 'bg-red':pro.tagName=='泰然','bg-purple':pro.tagName=='泰金'}">{{pro.tagName}}</span></div>
+                 <div class="chart-list-main">
+                     <div>
+                         <span class="chart-y-title">净值走势图</span>
+                         
+                         <span  class="chart-filter" (click)="searchChart(i,6,$event)" [ngClass]="{'active':chartClass(i,'6')}">6个月</span>
+                         <span  class="chart-filter" (click)="searchChart(i,3,$event)" [ngClass]="{'active':chartClass(i,'3')}">3个月</span>
+                        <span class="chart-filter" (click)="searchChart(i,1,$event)" [ngClass]="{'active':chartClass(i,'1')}">1个月</span>
+                         
+                     </div>
+                     <div id="chart_{{i}}" class="product-chart">{{i | productChart:pro.productCode:pro.ownFlag}}</div>
+                     <div *ngIf="pro.ownFlag == '1'" style="margin-top: -150px;margin-left: 170px;">
+                          <font style="font-size:14px;font-weight: 600;">持有本基金后可见</font>
+                     </div>
+                 </div>
+                 <div class="chart-list-body">
+                        <div class="chart-product-info">
+                            <div class="product-info">
+                                <span *ngIf="pro.ownFlag == '0'">
+                                    <font *ngIf="pro.unitNv">{{pro.unitNv}}</font>
+                                    <font *ngIf="!pro.unitNv" color="#333333">-</font>
+                                </span>
+                                <span *ngIf="pro.ownFlag == '1'">
+                                     <font style="font-size:14px;font-weight: 600;">持有本基金后可见</font>
+                                 </span>     
+                                <span>单位净值</span>
+                            </div>    
+                             <div class="product-info">
+                                <span  *ngIf="pro.ownFlag == '0'">
+                                   <font *ngIf="pro.yield && pro.yield>0"> {{pro.yield}}<b>%</b></font>
+                                   <font *ngIf="pro.yield && pro.yield<0" color="#40b03d"> {{pro.yield}}<b style="color:#40b03d;">%</b></font>
+                                   <font *ngIf="!pro.yield" color="#333333">-</font>
+                                </span>
+                                 <span *ngIf="pro.ownFlag == '1'">
+                                     <font style="font-size:14px;font-weight: 600;">持有本基金后可见</font>
+                                 </span>     
+                                <span>成立以来收益率</span>
+                            </div>    
+                             <div class="product-info">
+                                <span>
+                                    <font *ngIf="pro.minAmount" >{{pro.minAmount | numberFilter:4}}<b>万</b></font>
+                                    <font *ngIf="!pro.minAmount" color="#333333">-</font>
+                                </span>    
+                                <span>认/申购起点</span>
+                            </div>    
+                        </div>  
+                        <div class="chart-product-info-2">
+                            <span class="line">投资策略：{{pro.strategyType}}</span>
+                            <span class="line">产品状态：{{pro.status}}</span>
+                            <span class="line">基金经理：{{pro.managerName}}</span>
+                            <span class="line">基金管理人：{{pro.companyName}}</span>
+                        </div>  
+                 </div>    
+                </div>   
+             </div> 
+             <div *ngIf="productListType == '3'">
+                 <div class="product-no">
+                     <i></i>
+                     <div>根据您的评估结果，暂无适合您的产品</div>
+                     <button><a href="#/riskTest">重新评估</a></button>
+                 </div>
+             </div> 
+             <div class="loading"  *ngIf="productListType == '4'"><i></i></div>    
+             <div *ngIf="productListType == '2'">
+                 <div class="product-page-list">
+                     <div class="page-list-filter">
+                         <span>系列产品</span>
+                         <span class="filter-item" [ngClass]="{'active' : currentTag=='0'}" (click)="filterProduct('0')">全部</span>
+                         <span class="filter-item" *ngFor="let tag of productTags;let i=index"  (click)="filterProduct(tag.code)"  [ngClass]="{'active' : currentTag==tag.code}">{{tag.name}}</span>
+                         <!--<span class="filter-item">泰安</span>
+                         <span class="filter-item">泰金</span>-->
+                     </div>
+                     <div class="page-list-main">
+                         <div class="page-block" *ngFor="let pro of productList;let i = index"  (click)="goToDetail(i)">
+                             <div class="block-span" [ngClass]="{'bg-org':pro.tagName=='泰安', 'bg-red':pro.tagName=='泰然','bg-purple':pro.tagName=='泰金'}">{{pro.tagName}}</div>
+                             <div class="page-block-title">{{pro.nameAbbr}}</div>
+                             <div class="page-block-p">
+                                 <font *ngIf="pro.yield">{{pro.yield}}%</font>
+                                 <font *ngIf="!pro.yield" color="#333">-</font>
+                             </div>
+                             <div class="page-block-p2">成立以来收益率 </div>
+                             <div class="page-block-p3">基金经理：{{pro.managerName}} </div>
+                             <div class="page-block-p3">产品状态：{{pro.status}} </div>
+                             <div class="page-block-p3">单位净值：
+                                 <font *ngIf="pro.unitNv">{{pro.unitNv}}</font>
+                                 <font *ngIf="!pro.unitNv">-</font>
+                             </div>
+                         </div>   
+                         
+                     </div>    
+                     <pageNum  [totalPage]="totalPage" [currentPage]="currentPage" (pageClick)="selectPage($event)"></pageNum>
+             
+                 <div>    
+              
+            </div>
+            <div class="product-bottom" *ngIf="productListType != '3'">
+                基金有风险，投资需谨慎，投资产品的过往业绩并不预示其未来表现
+            </div>    
+        </div>     
+        
+    </div>
+    
+
+    
+        </div>    
+    </div>
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div>
+</div>
+<alert [title]="alertObject.title" [message]="alertObject.message" [hidden]="alertObject.hidden" [okText]="alertObject.okText" (okCallback)="alertCallback()"></alert>

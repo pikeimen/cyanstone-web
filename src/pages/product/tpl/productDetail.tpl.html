@@ -1,0 +1,491 @@
+<header [activeItem]="2" [transparent]="false"></header>
+   
+<div class="container product-container">
+    <div class="sub-content">
+     <div class="content" *ngIf="pInfo == true">
+       <div class="navigation-bar">
+                <a href="#/stone">首页</a> > <a href="#/product">系列产品</a> > <a class="active">产品详情</a>
+       </div>
+        <div class="product-detail">
+             <div class="product-detail-info" >
+                 <div class="info-title">{{productInfo.nameAbbr}}<span [ngClass]="{'bg-org':productInfo.tagName=='泰安', 'bg-red':productInfo.tagName=='泰然','bg-purple':productInfo.tagName=='泰金'}">{{productInfo.tagName}}</span></div>
+                
+                 <div class="info-body">
+                        <div class="chart-product-info">
+                            <div class="product-info">
+                                <span *ngIf="productInfo.ownFlag == '0'">
+                                    <font *ngIf="productInfo.unitNv">{{productInfo.unitNv}}</font>
+                                    <font *ngIf="!productInfo.unitNv" color="#333333">-</font>
+                                </span>
+                                 <span *ngIf="productInfo.ownFlag == '1'">
+                                     <font style="font-size:14px;font-weight: 600;">持有本基金后可见</font>
+                                 </span>
+                                <span>单位净值</span>
+                            </div>    
+                             <div class="product-info">
+                                <span *ngIf="productInfo.ownFlag == '0'">
+                                    <font *ngIf="productInfo.yield && productInfo.yield>0">{{productInfo.yield}}<b>%</b></font>
+                                    <font *ngIf="productInfo.yield && productInfo.yield<0" color="#40b03d"> {{productInfo.yield}}<b style="color:#40b03d;">%</b></font>
+                                    <font *ngIf="!productInfo.yield" color="#333333">-</font>
+                                </span>
+                                 <span *ngIf="productInfo.ownFlag == '1'">
+                                     <font style="font-size:14px;font-weight: 600;">持有本基金后可见</font>
+                                 </span>
+                                <span>成立以来收益率</span>
+                            </div>    
+                             <div class="product-info">
+                                <span>
+                                    <font *ngIf="productInfo.minAmount">{{productInfo.minAmount | numberFilter:4}}<b>万</b></font>
+                                    <font *ngIf="!productInfo.minAmount" color="#333333">-</font>
+                                </span>
+                                <span>认/申购起点</span>
+                            </div>    
+                        </div>  
+                        <div class="chart-product-info-2">
+                            <span>投资策略：{{productInfo.strategyType}}</span>
+                            <span>产品状态：{{productInfo.status}}</span>
+                            <span class="line">基金经理：{{productInfo.managerName}}</span>
+                            <span class="line">基金管理人：{{productInfo.companyName}}</span>
+                        </div>  
+                 </div>    
+                </div>   
+              <div class="product-yuyue">
+                  	<form name="f" (ngSubmit)="submit(f)" [formGroup]="f">
+                        <div class="input-item">
+                            <span class="item-label">姓名：</span>
+                              <div class="input-area">
+						    <input 
+								type="text" 
+								name="name"
+								placeholder="请输入您的姓名" 
+								[(ngModel)]="params.name"
+							    formControlName="name"
+							/>
+							<div class="error-box" *ngIf="(!f.controls.name.valid && !f.controls.name.pristine) || (touched && !f.controls.name.valid)">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span *ngIf="f.controls.name.errors.required">请输入您的姓名</span>
+                                </div>
+                            </div>
+							</div>
+						</div> 
+                         <div class="input-item">
+                            <span class="item-label">手机号码：</span>
+                              <div class="input-area">
+						     <input 
+                            type="text"
+                            name="mobile"
+                            placeholder="请输入11位手机号码"
+                            [(ngModel)]="params.mobile"
+                            formControlName="mobile"/>
+                            <div class="error-box" *ngIf="(!f.controls.mobile.valid && !f.controls.mobile.pristine) || (touched && !f.controls.mobile.valid)">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span *ngIf="f.controls.mobile.errors.required">请输入手机号</span>
+                                    <span *ngIf="f.controls.mobile.errors.invalidMobile && !f.controls.mobile.errors.required">手机号格式不正确</span>
+                                </div>
+                            </div>
+							</div>
+						</div> 
+                        <div class="yuyue-tit">预约后我们会在第一时间与您取得联系！请保持手机畅通！</div>
+                        <input 
+						class="submit yuyue-submit"
+						type="submit" 
+						value="立即预约"
+					
+						/>
+                        <div class="yuyue-div">
+                        <span>理财热线</span><div class="yuyue-phone"><i></i>400-928-2268</div>
+                    </div>
+                    </form>      
+              </div>      
+         </div> 
+         <div class="product-cont">
+             <ul class="cont-nav" >
+                <li [ngClass]="{'active':currentNav==1}" (click)="changeNav(1)">产品概况</li>
+                <li [ngClass]="{'active':currentNav==2}" (click)="changeNav(2)">历史净值</li>
+                <li [ngClass]="{'active':currentNav==3}" (click)="changeNav(3)">业绩表</li>
+                <li [ngClass]="{'active':currentNav==4}" (click)="changeNav(4)">相关公告</li> 
+            </ul>
+            <div class="nav-block nav-product-info"  [ngClass]="{'active':currentNav==1}">
+                <div class="tit">费用信息</div>
+                <table class="nav-table1" *ngIf="productInfo.ownFlag == '0'">
+                    <thead>
+                        <tr>
+                            <th>认/申购费率</th>
+                            <th>赎回费率</th>
+                            <th>管理费率</th>
+                            <th>托管费率</th> 
+                            <!--<th>业绩报酬</th>--> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{productInfo.purchaseRate}}</td>
+                            <td>{{productInfo.redemptionRate}}</td>
+                            <td>{{productInfo.manageRate}}</td>
+                            <td>{{productInfo.trusteeRate}}</td>
+                            <!--<td>{{productInfo.rewardDesc}}</td>-->
+                         </tr>   
+                    </tbody>    
+                </table>
+                <div *ngIf="productInfo.ownFlag == '1'" class="own">
+                    持有本基金后可见
+                </div>
+                <div class="tit">更多信息</div>   
+                <div class="more-message">
+                    <div>
+                        <span>成立日期</span><span>{{productInfo.establishDate || '-'}}</span>
+                    </div>   
+                    <div> 
+                         <span>开放日</span><span>{{productInfo.openDate || '-'}}</span>
+                    </div>   
+                    <div> 
+                         <span>产品期限</span><span>{{productInfo.term || '-'}}</span>
+                    </div>   
+                    <!--<div>                          
+                         <span>发行时间</span><span>{{(productInfo.releaseDate | dateFilter) || '-'}}</span>
+                    </div>-->   
+                    <div> 
+                         <span>基金托管人</span><span>{{productInfo.custodian || '-'}}</span>
+                    </div>   
+                    <div> 
+                         <span>投资范围</span><span>{{productInfo.investScope || '-'}}</span>
+                    </div>   
+                    <div>    
+                         <span>业绩报酬</span>
+                         <span *ngIf="productInfo.ownFlag == '0'">{{productInfo.rewardDesc || '-'}}</span>  
+                         <span *ngIf="productInfo.ownFlag == '1'">持有本基金后可见</span> 
+                    </div>   
+                    <div> 
+                          <span>预警和止损</span>
+                          <span *ngIf="productInfo.ownFlag == '0'">{{productInfo.warning || '-'}}</span>
+                          <span *ngIf="productInfo.ownFlag == '1'">持有本基金后可见</span>       
+                    </div>
+                </div>
+               
+            </div>   
+            <div class="nav-block nav-product-unitNv"  [ngClass]="{'active':currentNav==2}">
+                 <div class="tit">历史净值走势图</div>
+                 <div class="unitNv-chart" id="product-chart"  *ngIf="productInfo.ownFlag == '0'"></div>
+                 <div style="text-align:center"  *ngIf="productInfo.ownFlag == '0'">净值</div>
+                 <div  *ngIf="productInfo.ownFlag == '1'" class="own">
+                      持有本基金后可见
+                 </div>
+                 <div class="tit">历史净值</div>
+                  <table class="unitNv-table"  *ngIf="productInfo.ownFlag == '0'">
+                    <thead>
+                        <tr>
+                            <th>净值日期</th>
+                            <th>单位净值</th>
+                            <th>累计净值</th>
+                            <th>成立以来收益率</th> 
+                        </tr>
+                    </thead>                      
+                </table> 
+                <div class="scroll-table"  *ngIf="productInfo.ownFlag == '0'">
+                <table  class="unitNv-table">
+                     <tbody>
+                        <tr *ngFor="let net of netValueList;let i = index">
+                            <td>{{net.nvDate | dateFilter}}</td>
+                            <td>{{net.unitNv}}</td>
+                            <td>{{net.accumulativeNv}}</td>
+                            <td *ngIf="net.accumulativeIncomeRate < 0">
+                               <font color="#96cf94">{{net.accumulativeIncomeRate}}%</font>
+                           </td>
+                           <td *ngIf="net.accumulativeIncomeRate > 0">
+                               <font color="#f8767f">{{net.accumulativeIncomeRate}}%</font>
+                           </td> 
+                           <td *ngIf="net.accumulativeIncomeRate == 0">
+                             0
+                           </td>    
+                         </tr>   
+                    </tbody> 
+                </table>  
+                </div>   
+                 <div  *ngIf="productInfo.ownFlag == '1'"  class="own">
+                      持有本基金后可见
+                 </div>
+            </div>  
+            <div class="nav-block nav-product-yield"  [ngClass]="{'active':currentNav==3}">
+                <div  *ngIf="productInfo.ownFlag == '1'"  class="own">
+                      持有本基金后可见
+                 </div>
+                <table class="yield-table" *ngIf="productInfo.ownFlag == '0'">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>今年以来</th>
+                            <th>近一月</th>
+                            <th>近三月</th>
+                            <th>近半年</th> 
+                            <th>近一年</th>
+                            <th>近三年</th>
+                            <th>成立以来</th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <tr>
+                            <td>收益率</td>
+                            <td>
+                              <font *ngIf="yieldObject.fundYield.thisYearYield >0" color="#f8767f">
+                                  {{yieldObject.fundYield.thisYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.thisYearYield < 0" color="#40b03d">
+                                  -{{yieldObject.fundYield.thisYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.thisYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.fundYield.thisYearYield">
+                                  -
+                              </font>  
+                            </td>
+                            <td>
+                              <font *ngIf="yieldObject.fundYield.oneMonthYield >0" color="#f8767f">
+                                  {{yieldObject.fundYield.oneMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.oneMonthYield < 0" color="#40b03d">
+                                  {{yieldObject.fundYield.oneMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.oneMonthYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.fundYield.oneMonthYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.fundYield.threeMonthYield >0" color="#f8767f">
+                                  {{yieldObject.fundYield.threeMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.threeMonthYield < 0" color="#40b03d">
+                                  {{yieldObject.fundYield.threeMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.threeMonthYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.fundYield.threeMonthYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.fundYield.halfYearYield >0" color="#f8767f">
+                                  {{yieldObject.fundYield.halfYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.halfYearYield < 0" color="#40b03d">
+                                  {{yieldObject.fundYield.halfYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.halfYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.fundYield.halfYearYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.fundYield.oneYearYield >0" color="#f8767f">
+                                  {{yieldObject.fundYield.oneYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.oneYearYield < 0" color="#40b03d">
+                                  {{yieldObject.fundYield.oneYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.oneYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.fundYield.oneYearYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                <font *ngIf="yieldObject.fundYield.threeYearYield >0" color="#f8767f">
+                                  {{yieldObject.fundYield.threeYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.threeYearYield < 0" color="#40b03d">
+                                  {{yieldObject.fundYield.threeYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.threeYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.fundYield.threeYearYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.fundYield.sinceYearYield >0" color="#f8767f">
+                                  {{yieldObject.fundYield.sinceYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.sinceYearYield < 0" color="#40b03d">
+                                  {{yieldObject.fundYield.sinceYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.fundYield.sinceYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.fundYield.sinceYearYield">
+                                  -
+                              </font>
+                            </td>
+                         </tr> 
+                          <tr>
+                            <td>沪深300</td>
+                            <td>
+                              <font *ngIf="yieldObject.hs300.thisYearYield >0" color="#f8767f">
+                                  {{yieldObject.hs300.thisYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.thisYearYield < 0" color="#40b03d">
+                                  {{yieldObject.hs300.thisYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.thisYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.hs300.thisYearYield">
+                                  -
+                              </font>  
+                            </td>
+                            <td>
+                              <font *ngIf="yieldObject.hs300.oneMonthYield >0" color="#f8767f">
+                                  {{yieldObject.hs300.oneMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.oneMonthYield < 0" color="#40b03d">
+                                  {{yieldObject.hs300.oneMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.oneMonthYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.hs300.oneMonthYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.hs300.threeMonthYield >0" color="#f8767f">
+                                  {{yieldObject.hs300.threeMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.threeMonthYield < 0" color="#40b03d">
+                                  {{yieldObject.hs300.threeMonthYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.threeMonthYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.hs300.threeMonthYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.hs300.halfYearYield >0" color="#f8767f">
+                                  {{yieldObject.hs300.halfYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.halfYearYield < 0" color="#40b03d">
+                                  {{yieldObject.hs300.halfYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.halfYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.hs300.halfYearYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.hs300.oneYearYield >0" color="#f8767f">
+                                  {{yieldObject.hs300.oneYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.oneYearYield < 0" color="#40b03d">
+                                  {{yieldObject.hs300.oneYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.oneYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.hs300.oneYearYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.hs300.threeYearYield >0" color="#f8767f">
+                                  {{yieldObject.hs300.threeYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.threeYearYield < 0" color="#40b03d">
+                                  {{yieldObject.hs300.threeYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.threeYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.hs300.threeYearYield">
+                                  -
+                              </font>
+                            </td>
+                            <td>
+                                 <font *ngIf="yieldObject.hs300.sinceYearYield >0" color="#f8767f">
+                                  {{yieldObject.hs300.sinceYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.sinceYearYield < 0" color="#40b03d">
+                                  {{yieldObject.hs300.sinceYearYield}}%
+                              </font> 
+                              <font *ngIf="yieldObject.hs300.sinceYearYield == 0">
+                                 0%
+                              </font> 
+                              <font *ngIf="!yieldObject.hs300.sinceYearYield">
+                                  -
+                              </font>
+                            </td>
+                         </tr>   
+                    </tbody>                      
+                </table> 
+            </div>  
+            <div class="nav-block nav-product-notice"  [ngClass]="{'active':currentNav==4}">
+                <div  *ngIf="productInfo.ownFlag == '1'"  class="own">
+                      持有本基金后可见
+                 </div>
+                <div class="notice-list"  *ngIf="productInfo.ownFlag == '0'" [ngClass]="{'active':currentNotice==1}" >
+                        <div class="notice-num">共有{{noticeList.length}}条记录</div>
+                        <ul>
+                            <li *ngFor="let notice of noticeList;let i = index" (click)="goToNoticeInfo(i)">
+                                <span>• <b>{{notice.title}}</b></span>
+                                <span>{{notice.publishTime | dateFilter}}</span>
+                            </li>    
+                        </ul> 
+                        
+                         <pageNum  [totalPage]="totalPage" [currentPage]="currentPage" (pageClick)="selectPage($event)"></pageNum>
+              
+                 </div> 
+                 <div class="notice-info"  [ngClass]="{'active':currentNotice==2}">
+                     <div class="notice-title">{{currentNoticeInfo.title}}</div>
+                     <!--<div id="notice-content" class="notice-content" [innerHTML]="currentNoticeInfo.content"></div>-->
+                     <div id="notice-content" class="notice-content"></div>
+                     <div class="notice-download">
+                        <span class="box" *ngFor="let file of currentNoticeInfo.uploadFiles;let i = index" (click)="downloadAccount(file.id)">
+                            <i></i>
+                            <p>{{file.filename| fileFilter}}</p>
+                            <p>{{file.filename| fileFilter:'ext'}}</p>
+                        </span>
+                     </div>
+                     <div class="notice-time">
+                         苍石资产
+                     </div>     
+                     <div class="notice-time">
+                         {{currentNoticeInfo.publishTime | dateFilter}}
+                     </div>
+                 </div>   
+            </div>
+         </div>  
+          <div class="product-bottom">
+                基金有风险，投资需谨慎，投资产品的过往业绩并不预示其未来表现
+          </div>       
+     </div>
+     <div class="content" *ngIf="pInfo == false">
+          <div class="yuyue-result">
+                <div class="glyphicon glyphicon-ok"></div>
+                <div class="tit">您已成功预约了<span>{{yuyueObj.tagName}}</span>产品</div>
+               
+                <div class="con"><span>姓名：</span>{{yuyueObj.name}}</div>
+                <div  class="con"><span>手机号码：</span>{{yuyueObj.mobile}}</div>
+                <div  class="con"><span>预约产品：</span>{{yuyueObj.pName}}</div>
+                
+                <button (click)="goToDetail()">继续预约</button>
+          </div>    
+     </div> 
+      <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+     </div> 
+        
+ </div>   
+ 
+
+<alert [title]="alertObject.title" [message]="alertObject.message" [hidden]="alertObject.hidden" [okText]="alertObject.okText" (okCallback)="alertCallback()" ></alert>

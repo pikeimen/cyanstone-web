@@ -1,0 +1,93 @@
+.manage-team{
+	overflow: hidden;
+	padding: 0px 60px;
+	margin-bottom: 70px;
+}
+.manage-team .fl{
+	float: left;
+}
+.manage-team .ml{
+	margin-left: 55px;
+}
+.manage-team .mr{
+	margin-right: 55px;
+}
+.manage-team .photo{
+	width: 290px;
+	height:266px;
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+.manage-team .photo.pic1{
+	background-image: url(../../../assets/img/about_us/manage_team02.png);
+}
+.manage-team .photo.pic2{
+	background-image: url(../../../assets/img/about_us/manage_team03.png);
+}
+.manage-team .info{
+	margin-top: 40px;
+	width: 670px;
+	font-size: 14px;
+}
+.manage-team .info .job{
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+.manage-team .info p .intro{
+	margin-bottom: 13px;
+    display: inline-block;
+}
+.manage-team .info p .details{
+	line-height: 23px;
+	color: #666666;
+}
+.manage-team .info p:first-child span:first-child{
+	font-size: 24px;
+}
+.team-group2{
+	overflow: hidden;
+	padding: 0 30px;
+}
+.team-group2 .clear{
+	clear: both;
+}
+.manage-team2{
+	width: 272px;
+	margin: 0 30px  45px 30px;
+	float: left;
+	font-size: 14px;
+	text-align: center;
+}
+.manage-team2 .pic{
+	margin: 0 auto 8px;
+	width: 140px;
+	height: 140px;
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+.manage-team2 .pic.pic1{
+	background-image: url(../../../assets/img/about_us/manage_team04.png);
+}
+.manage-team2 .pic.pic2{
+	background-image: url(../../../assets/img/about_us/manage_team05.png);
+}
+.manage-team2 .pic.pic3{
+	background-image: url(../../../assets/img/about_us/manage_team06.png);
+}
+.manage-team2 .pic.pic4{
+	background-image: url(../../../assets/img/about_us/manage_team07.png);
+}
+.manage-team2 .pic.pic5{
+	background-image: url(../../../assets/img/about_us/manage_team08.png);
+}
+.manage-team2 p:last-child{
+	text-align: left;	
+	color: #666666;
+}
+.manage-team2 p.name{
+	font-size: 18px;
+	margin:20px 0;
+}
+.manage-team2.center-child{
+	margin: 0 60px;
+}

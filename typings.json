@@ -1,0 +1,7 @@
+{
+  "globalDependencies": {
+    "es6-shim": "registry:dt/es6-shim",
+    "jasmine": "registry:dt/jasmine",
+    "zone.js": "github:DefinitelyTyped/DefinitelyTyped/zone.js/zone.js.d.ts#9027703c0bd831319dcdf7f3169f7a468537f448"
+  }
+}

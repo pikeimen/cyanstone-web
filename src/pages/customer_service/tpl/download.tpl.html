@@ -1,0 +1,32 @@
+<header [activeItem]="4" [transparent]="false"></header>
+<subMenu [activeItem]="1" [menus]="menus" [liWidth]="'25%'"></subMenu>
+   
+<div class="container hasSubMenu">
+    <div class="sub-content">
+	 <div class="content">
+         <div class="download-top"></div>
+         <div class="download-body">
+             <div class="body-account" *ngIf="accountList.length > 0">
+                 <span class="tit">账户类及交易类申请表</span>
+                 <span class="box" *ngFor="let account of accountList;let i=index" (click)="downloadAccount(i)">
+                     <i></i>
+                     <p>{{account.filename | fileFilter}}</p>
+                     <p>{{account.filename | fileFilter:'ext'}}</p>
+                 </span>
+                 
+             </div>
+             <div class="body-trade" *ngIf="tradeList.length > 0">
+                 <span class="tit">协议类申请表</span>
+                  <span class="box" *ngFor="let trade of tradeList;let i=index" (click)="downloadTrade(i)">
+                     <i></i>
+                     <p>{{trade.filename | fileFilter}}</p>
+                     <p>{{trade.filename | fileFilter:'ext'}}</p>
+                 </span>
+             </div>    
+         </div>
+    </div>
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>    
+	</div>	
+</div>
+
+<alert   [message]="alertObject.message" [hidden]="alertObject.hidden"></alert>

@@ -1,0 +1,73 @@
+<div class="stone-home">
+<header [activeItem]="5" [transparent]="true" [headStyle] = "{'border-bottom': '2px solid', 'border-color': 'rgba(255,255,255,0.1)'}"></header>
+
+<div class="carousel-body" [ngStyle]="{'transform':transformBody}">
+    <div class="carousel-page carousel-one" [ngClass]="{'animateIn-one':animateOne}"  >
+        <div class="carousel-bg"></div>
+        <div class="main-content">
+			<div class="login-box">
+				<p class="title">登录</p>
+				<form name="f" (submit)="submit(f)" [formGroup]="f">
+					<div>
+						<div class="item input-item text-box" >
+							<div class="input-area">
+								<input 
+								type="text" 
+								name="username"
+								placeholder="请输入手机号/身份证号码" 
+								[(ngModel)]="user.params"
+								formControlName="username"/>
+								<div class="error-box" *ngIf="(touched || !f.controls.username.pristine) && !f.controls.username.valid">
+									<div class="error-tip">
+										<i></i>
+										<span>请输入手机号/身份证号码</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item input-item text-box pwd">
+							<div class="input-area">
+								<input 
+								type="password" 
+								name="password"
+								placeholder="请输入登录密码"
+								[(ngModel)]="user.password"
+								formControlName="password"/>
+								<div class="error-box"  *ngIf="(touched || !f.controls.password.pristine) && !f.controls.password.valid">
+									<div class="error-tip">
+										<i></i>
+										<span *ngIf="f.controls.password.errors.required">请输入登录密码</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<button 
+						class="submit"
+						type="submit" 
+						value="登录"
+						[ngClass]="{'disabled':requestFlag}" 
+						[disabled]="requestFlag">
+							<span *ngIf="requestFlag">登录中...</span>
+							<span *ngIf="!requestFlag">登录</span>
+						</button>
+					</div>
+					<div class="item request-error-tip">
+						<p [ngClass]="{'text-l':pwdLeftTimes==0}">{{errorTip}}</p>
+					</div>
+					<div class="item other">
+						<div class="fl"><span class="no-account">没有账户?</span><a href="#/register">立即注册</a></div>
+						<div class="fr"><a href="#/findPwdStep1">忘记密码?</a></div>
+					</div>
+				</form>
+			</div>
+        </div>
+    </div>    
+</div>
+
+
+
+
+<footer [transparent]="false" [footStyle]="{'background-color':'rgba(0,0,0,0.2)','color':'#fff','border':'none'}"></footer>
+</div>

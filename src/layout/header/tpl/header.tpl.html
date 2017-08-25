@@ -1,0 +1,99 @@
+<div class="header" [ngClass]="{'bg-trans' : transparent}" [ngStyle]="headStyle">
+      <div class="am-header-inner">
+        <div class="mainNav">
+            <div class="laymid">
+                <a href="#/stone"><div class="cyan-logo"></div></a>
+                <div id="J_mainMenu" class="mainMenu">
+                    <ul>
+                        <li class="channel on">
+                            <a class="channel-a" [ngClass]="{'active': activeItem==0}" href="#/stone">首页</a>
+                        </li>
+                        <li id="J_channel_cfzx" class="channel channelItem" [ngClass]="{'hover': selectItem==1}" >
+                            <a class="channel-a" [ngClass]="{'active': activeItem==1}" href="javascript:void(0);" (click)="openItem(1,$event)">关于我们</a>
+                            <div class="downlist">
+                              <div class="together">
+                                <div class="close-menu" (click)="openItem(-1,$event)"></div>
+                                <div class="tp">
+                                    <a href="#/companyIntro" class="listitem" seed="tp-listitem" smartracker="on">公司简介</a>
+                                    <a href="#/businessService" class="listitem" seed="tp-listitemT1" smartracker="on">业务范围</a>
+                                    <a href="#/chairmanWord" class="listitem"  seed="tp-listitemT2" smartracker="on">董事长致辞</a>
+                                    <a href="#/manageTeam" class="listitem"  seed="tp-listitemT3" smartracker="on">管理团队</a>
+                                    <a href="#/CyanStoneEvent" class="listitem" seed="tp-listitemT4" smartracker="on">苍石大事记</a>
+                                </div>
+                                <div class="ft">
+                                    <span>关于我们</span>
+                                </div>
+                              </div>
+                            </div>
+                        </li>
+                        <li id="J_channel_aqbz" class="channel channelItem" [ngClass]="{'hover': selectItem==2}" >
+                            <a class="channel-a" [ngClass]="{'active': activeItem==2}" href="#/product">系列产品</a>
+                           
+                        </li>
+                        <li id="J_channel_shfw" class="channel channelItem" [ngClass]="{'hover': selectItem==3}" >
+                            <a class="channel-a" [ngClass]="{'active': activeItem==3}" href="javascript:void(0);" (click)="openItem(3,$event)">苍石视点</a>
+                            <div class="downlist">
+                              <div class="together">
+                                <div class="close-menu" (click)="openItem(-1,$event)"></div>
+                                <div class="tp">
+                                    <a href="#/news/B2" class="listitem" seed="tp-listitem" smartracker="on">苍石视点</a>
+                                    <a href="#/news/B3" class="listitem" seed="tp-listitemT1" smartracker="on">媒体报道</a>
+                                    <a href="#/news/B4" class="listitem"  seed="tp-listitemT2" smartracker="on">行业动态</a>
+                                    <a href="#/news/B5" class="listitem" seed="tp-listitemT3" smartracker="on">法律法规</a>
+                                </div>
+                                <div class="ft">
+                                    <span>苍石视点</span>
+                                </div>
+                              </div>
+                            </div>
+                        </li>
+                        <li id="J_channel_shfw" class="channel channelItem"  [ngClass]="{'hover': selectItem==4}">
+                            <a class="channel-a" [ngClass]="{'active': activeItem==4}" href="javascript:void(0);"  (click)="openItem(4,$event)">苍石客服</a>
+                            <div class="downlist">
+                              <div class="together">
+                                <div class="close-menu" (click)="openItem(-1,$event)"></div>
+                                <div class="tp">
+                                    <a href="#/cyanService" class="listitem" seed="tp-listitem" smartracker="on">苍石服务</a>
+                                    <!--<a href="#/download" class="listitem"  seed="tp-listitemT1" smartracker="on">下载中心</a>-->
+                                    <a href="#/question" class="listitem" seed="tp-listitemT2" smartracker="on">常见问题</a>
+                                    <a href="#/contactUs" class="listitem" seed="tp-listitemT3" smartracker="on">联系我们</a>
+                                </div>
+                                <div class="ft">
+                                    <span>苍石客服</span>
+                                </div>
+                              </div>
+                            </div>
+                        </li>
+                        <li id="J_channel_shfw" class="channel channelItem"  [ngClass]="{'hover': selectItem==5}">
+                            <a class="channel-a" [ngClass]="{'active': activeItem==5}" href="javascript:void(0);"  (click)="openItem(5,$event)">会员</a>
+                            <div class="downlist">
+                              <div class="together">
+                                <div class="close-menu" (click)="openItem(-1,$event)"></div>
+                                <div class="tp">
+                                    <a href="#/register" class="listitem"  seed="tp-listitem" smartracker="on" *ngIf="!user_mobile">会员注册</a>
+                                    <a href="#/login" class="listitem"  seed="tp-listitemT1" smartracker="on" *ngIf="!user_mobile">会员登录</a>
+                                    <a href="#/riskTest" class="listitem"  seed="tp-listitemT2" smartracker="on" *ngIf="user_mobile" target="_blank">风险评估</a>
+                                    <a href="#/modifyPwd" class="listitem"  seed="tp-listitemT3" smartracker="on" *ngIf="user_mobile">修改密码</a>
+                                </div>
+                                <div class="ft">
+                                    <span>会员</span>
+                                </div>
+                              </div>
+                            </div>
+                        </li>
+                        <li id="li_not_login" class="channel hasleftline" *ngIf="!user_mobile">
+                            <a class="am-button-innerNav button-login" href="#/login">登录</a>
+                            <a class="am-button-innerNav button-register" href="#/register">注册</a>
+                        </li>
+                         <li id="li_login" class="channel hasleftline" *ngIf="user_mobile">
+                            <a id="welcome" class="am-button-innerNav" href="javascript:void(0);">欢迎您,{{user_mobile}}</a>
+                            <a class="am-button-innerNav button-register" href="javascript:void(0);" (click)="logout()">注销</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+      </div>
+      <div id="J_bannar_box" class="am-bannarAd-box"></div>
+    </div>

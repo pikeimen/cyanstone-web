@@ -1,0 +1,95 @@
+.news-info-content{
+        background-color: #fff;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+.news-info-title{
+        text-align: center;
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+.news-info-body{
+        font-size: 14px;
+    text-indent: 2em;
+    line-height: 26px;
+    color:#7e7e7e;
+}
+.news-info-download {
+    margin-top: 30px;
+}
+.news-info-download .box{
+    width: 31%;
+    height: 80px;
+    display: inline-block;
+    margin-left: 1%;
+    margin-top: 20px;
+    margin-right: 1%;
+}
+.news-info-download .box:hover{
+    cursor: pointer;
+}
+.news-info-download .box i{
+    width: 43px;
+    height: 41px;
+    background: url(../../../assets/img/icon/icon-22.png);
+    display: block;
+    top: 50%;
+    position: relative;
+    margin-top: -20px;
+    left: 20px;
+    background-repeat: no-repeat;
+}
+.news-info-download .box p{
+    margin-left: 80px;
+    font-size: 14px;
+    color: #333333;
+    margin-top: -5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 15px;
+     width: 70%;
+    white-space: nowrap;
+}
+.news-info-download .box p:last-child{
+    color:#bbbbbb;
+}
+.news-info-author{
+    font-size: 14px;
+    margin-top: 50px;
+}
+.news-info-time{
+     font-size: 14px;
+     margin-top: 10px;
+}
+.news-info-bottom{
+    margin-top: 20px;
+    border-top: 1px dashed #ddd;
+    
+    padding-top: 15px;
+}
+.news-info-bottom .bottom-left,.news-info-bottom .bottom-right{
+        width: 50%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.news-info-bottom .bottom-right{
+    width:49%;
+     text-align: right;
+}
+.news-info-bottom .bottom-left span,.news-info-bottom .bottom-right span{
+    cursor: pointer;
+}
+.news-info-bottom .bottom-left.noactive,.news-info-bottom .bottom-right.noactive{
+       pointer-events: none;
+}
+.bdsharebuttonbox{
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    width: 20px;
+    margin-left: -50px;
+}

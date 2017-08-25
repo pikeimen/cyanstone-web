@@ -1,0 +1,23 @@
+<header [activeItem]="5" [transparent]="false"></header>
+
+<div class="container">
+    <div class="sub-content success-sub-content">
+    <div class="content register success-content">
+        <div [hidden]="modifySuccess">
+		  	<p class="title">修改密码</p>
+            <div class="find-pwd">
+                <div class="step-img"><span class="active">1</span><i class="active"></i><span class="active">2</span><i class="active"></i><span class="active">&nbsp;<i></i></span></div>
+                <div class="step-text"><span class="active">验证</span><span class="center active">设置新密码</span><span class="active">完成</span></div>
+            </div>
+			<div class="left-part modifyPwd">
+                
+            </div>
+        </div>
+        
+        <success-tip  successText="恭喜您，密码找回成功！" subText="您可以使用新密码登录网站！" btnText="重新登录" btnLink="#/login" [style]="{'margin-top': '0'}"></success-tip>
+        
+        
+    </div>
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div>    
+</div>

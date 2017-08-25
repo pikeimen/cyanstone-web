@@ -1,0 +1,71 @@
+
+.content{
+    background-color: #ffffff;
+    padding-bottom: 30px;
+    margin-bottom: 60px;
+}
+.about-us-banner{
+    /*margin-top: 20px;*/
+    margin-bottom: 37px;
+}
+.about-us-banner .banner-img{
+    width:1200px;
+    height: 223px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+/*公司简介banner*/
+.about-us-banner .banner-img.banner1{
+    background-image: url(../../../assets/img/about_us/company-intro01.jpg);
+}
+/*业务范围banner*/
+.about-us-banner .banner-img.banner2{
+    background-image: url(../../../assets/img/about_us/business-service01.jpg);
+}
+/*董事长致辞banner*/
+.about-us-banner .banner-img.banner3{
+    background-image: url(../../../assets/img/about_us/chairman_word01.jpg);
+}
+/*管理团队banner*/
+.about-us-banner .banner-img.banner4{
+    background-image: url(../../../assets/img/about_us/manage_team01.jpg);
+}
+/*苍石大事记banner*/
+.about-us-banner .banner-img.banner5{
+    background-image: url(../../../assets/img/about_us/cyan_stone_event01.jpg);
+}
+.chairman-word{
+    padding: 0 35px;
+    font-size: 14px;
+    color: #7e7e7e;
+}
+.chairman-word p{
+    margin-bottom: 15px;
+}
+.chairman-word .title{
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333333;
+}
+.chairman-sign{
+    text-align: right;
+    overflow: hidden;
+    margin-top: 40px;
+    padding-right: 40px;
+}
+.chairman-sign div{
+    float: right;
+}
+.chairman-sign span{
+    float: left;
+}
+.chairman-sign span:first-child{
+    margin-top: 20px;
+}
+.chairman-sign .sign-img{
+    display: inline-block;
+    width: 85px;
+    height: 40px;
+    background: url(../../../assets/img/about_us/chairman-sign.png) no-repeat center center;
+    background-size: 100% 100%;
+}

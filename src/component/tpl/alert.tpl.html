@@ -1,0 +1,13 @@
+<div class="backdrop"  [ngClass]="{'hidden' : hidden}"></div>
+<div class="alert-main"  [ngClass]="{'hidden' : toggerAlert(hidden)}">
+    <div class="alert-title"  *ngIf="title">{{title}}</div>
+    <div class="alert-body">
+           <p   [innerHTML]="message"></p>
+    </div>    
+    <div class="alert-button">
+        <button  *ngIf="!okText" (click)="clickAlertBtn()">确定</button>
+        <button  *ngIf="okText" (click)="clickAlertBtn()">{{okText}}</button>
+    </div>    
+</div>    
+    
+    

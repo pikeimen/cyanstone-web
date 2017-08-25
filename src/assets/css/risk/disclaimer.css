@@ -1,0 +1,28 @@
+.disclaimer-body{
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 40px;
+}
+.disclaimer-body .disclaimer-body-title{
+    text-align: center;
+    padding: 30px 20px 15px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+.disclaimer-body p{
+    margin: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    line-height: 25px;
+    margin-left: 25px;
+    margin-top: 10px;
+    color:#898989;
+}
+.disclaimer-body p:nth-of-type(1){
+    text-indent: 30px;
+    margin-left: 0px;
+}

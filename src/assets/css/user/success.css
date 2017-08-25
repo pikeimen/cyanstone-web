@@ -1,0 +1,36 @@
+.success{
+    margin: 100px 0;
+    text-align: center;
+}
+.success .success-tips{
+    margin: 20px 0 10px 0;
+    font-size: 24px;
+}
+.success .tip-img{
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    background: url(../../../assets/img/success.png) no-repeat center;
+    background-size: 100%;
+}
+.success .sub-text{
+    font-size: 18px;
+    color: #747474;
+}
+.success .turn-btn a{
+    display: inline-block;
+    width: 160px;
+    height: 42px;
+    line-height: 42px;
+    background-color: #4285f4;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #ffffff;
+}
+.sub-content.success-sub-content{
+    padding-top: 50px;
+}
+.content.success-content{
+    margin-top: 0;
+}

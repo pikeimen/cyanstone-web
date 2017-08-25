@@ -1,0 +1,41 @@
+<header [activeItem]="4" [transparent]="false"></header>
+<subMenu [activeItem]="2" [menus]="menus" [liWidth]="'33.3%'"></subMenu>
+   
+<div class="container hasSubMenu">
+    <div class="sub-content">
+	  	 <div class="content">
+         
+           <div class="contact-top"></div>
+          <div class="contact-body">
+              <div class="body-left">
+                  <div class="left-address">
+                      <i></i><span>公司地址</span>
+                      <div>上海市浦东新区峨山路505号东方纯一大厦15楼 邮政编码：200127</div>
+                  </div>
+                  <div class="left-phone">
+                        <i></i><span>客服电话  400-928-2268 </span>
+                      <div>周一至周五（节假日除外）8：00-17：30</div>
+               
+                  </div>
+                  <div class="left-weixin" > 
+                       <i></i><span>微信订阅</span>
+                      <div>微信扫描二维码关注“苍石资产”， 随时了解资讯信息
+                       </div>
+                       <b></b>
+                  </div>
+                  <div class="left-email">
+                       <i></i><span>客服邮箱</span>
+                      <div>Email：service@fofplus.com</div>
+                  </div>    
+              </div>
+              <div class="body-right">
+                  <div id="map" name="map" class="map-div">
+                       <!--<baidu-map ak="5XO4WhIyUWAkSu9dvBq21mgc" [options]="opts" [offline]="offlineOpts" (onMapLoaded)="loadMap($event)" (onMarkerClicked)="clickMarker($event)"></baidu-map>-->
+                    <iframe width="454" height="365" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/DHOTF"></iframe>
+                  </div>
+              </div>
+           </div>   
+      </div>
+      <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>    
+      </div>
+   </div>   

@@ -1,0 +1,8 @@
+<div class="sub-menu">
+    <ul>
+        <li [ngClass]="{'active' : activeItem==i}" *ngFor="let m of menus;let i=index" [ngStyle]="{'width':liWidth}"><i *ngIf="activeItem==i">&nbsp;</i>
+        <a href="javascript:void(0);" *ngIf="!m.href">{{m.title}}</a>
+         <a href="{{m.href}}" *ngIf="m.href">{{m.title}}</a>
+        </li>
+    </ul>
+</div>

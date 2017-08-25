@@ -1,0 +1,103 @@
+<header [activeItem]="5" [transparent]="false"></header>
+
+<div class="container">
+    <div class="sub-content modifyPwd-sub-content">
+    <div class="content register modifyPwd-content">
+        <div>
+		  	<p class="title">修改密码</p>
+			<div class="left-part modifyPwd">
+                <form name="f" (submit)="submit(f)" [formGroup]="f" >
+                    <div class="input-item common-text">
+                        <label>原密码：</label>
+                        <div class="input-area">
+                            <input 
+                            type="password"
+                            name="oldPassword"
+                            [(ngModel)]="params.oldPassword"
+                            formControlName="oldPassword"
+                            placeholder="请输入原密码"
+                            (keyup)="oldPasswordChange()"
+                            />
+                            <div class="error-box" *ngIf="(touched || !f.controls.oldPassword.pristine) && !f.controls.oldPassword.valid">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span *ngIf="f.controls.oldPassword.errors.required">请输入原密码</span>
+                                </div>
+                            </div>
+                            <div class="error-box" *ngIf="f.controls.oldPassword.valid && oldPasswordError">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span>原密码不正确</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-item common-text">
+                        <label>新密码：</label>
+                        <div class="input-area">
+                            <input 
+                            type="password"
+                            name="password"
+                            [(ngModel)]="params.password"
+                            formControlName="password"
+                            placeholder="请输入新密码"
+                            />
+                            <div class="error-box" *ngIf="(touched || !f.controls.password.pristine) && !f.controls.password.valid">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span *ngIf="f.controls.password.errors.required">请输入新密码</span>
+                                    <span *ngIf="f.controls.password.errors.invalidPassword && !f.controls.password.errors.required">密码长度6-20位，至少包含数字、字母或者下划线中的两种</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="input-item common-text">
+                        <label>确认新密码：</label>
+                        <div class="input-area">
+                            <input 
+                            type="password"
+                            name="rePassword"
+                            [(ngModel)]="params.rePassword"
+                            formControlName="rePassword"
+                            placeholder="再次输入新密码"
+                            />
+                            <div class="error-box" *ngIf="(touched || !f.controls.rePassword.pristine) && !f.controls.rePassword.valid">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span *ngIf="f.controls.rePassword.errors.required">请再次输入密码</span>
+                                    <span *ngIf="f.controls.rePassword.errors.invalidPassword && !f.controls.rePassword.errors.required">密码长度6-20位，至少包含数字、字母或者下划线中的两种</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="error-box" *ngIf="f.controls.rePassword.valid && f.controls.password.value != f.controls.rePassword.value">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span>两次密码不一致</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-item">
+                        <div class="form-footer">
+                            <input 
+                            name="submit"
+                            class="submit"
+                            type="submit" 
+                            value="确认"
+                            />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        
+        
+        
+    </div>
+
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div>    
+</div>

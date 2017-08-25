@@ -1,0 +1,81 @@
+<header [activeItem]="5" [transparent]="false"></header>
+
+<div class="container">
+    <div class="sub-content success-sub-content">
+    <div class="content register success-content">
+        <div [hidden]="modifySuccess">
+		  	<p class="title">修改密码</p>
+            <div class="find-pwd">
+                <div class="step-img"><span class="active">1</span><i class="active"></i><span class="active">2</span><i></i><span>&nbsp;<i></i></span></div>
+                <div class="step-text"><span class="active">验证</span><span class="center active">设置新密码</span><span>完成</span></div>
+            </div>
+			<div class="left-part modifyPwd">
+                <form name="f" (submit)="submit(f)" [formGroup]="f" >
+                    <div class="input-item common-text">
+                        <label>新密码：</label>
+                        <div class="input-area">
+                            <input 
+                            type="password"
+                            name="password"
+                            [(ngModel)]="params.password"
+                            formControlName="password"
+                            placeholder="请输入新密码"
+                            />
+                            <div class="error-box" *ngIf="(touched || !f.controls.password.pristine) && !f.controls.password.valid">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span *ngIf="f.controls.password.errors.required">请输入新密码</span>
+                                    <span *ngIf="f.controls.password.errors.invalidPassword && !f.controls.password.errors.required">密码长度6-20位，至少包含数字、字母或者下划线中的两种</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="input-item common-text">
+                        <label>确认新密码：</label>
+                        <div class="input-area">
+                            <input 
+                            type="password"
+                            name="rePassword"
+                            [(ngModel)]="params.rePassword"
+                            formControlName="rePassword"
+                            placeholder="请确认输入新密码"
+                            />
+                            <div class="error-box" *ngIf="(touched || !f.controls.rePassword.pristine) && !f.controls.rePassword.valid">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span *ngIf="f.controls.rePassword.errors.required">请再次输入密码</span>
+                                    <span *ngIf="f.controls.rePassword.errors.invalidPassword && !f.controls.rePassword.errors.required">密码长度6-20位，至少包含数字、字母或者下划线中的两种</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="error-box" *ngIf="f.controls.rePassword.valid && f.controls.password.value != f.controls.rePassword.value">
+                                <div class="error-tip">
+                                    <i></i>
+                                    <span>两次密码不一致</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-item">
+                        <div class="form-footer">
+                            <button 
+                            name="submit"
+                            class="submit"
+                            type="submit" 
+                            [ngClass]="{'disabled':requestFlag}" 
+                            [disabled]="requestFlag">
+                                <span *ngIf="requestFlag">正在提交...</span>
+                                <span *ngIf="!requestFlag">下一步</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>   
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div> 
+</div>

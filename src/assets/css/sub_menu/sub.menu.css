@@ -1,0 +1,42 @@
+.sub-menu{
+	width: 100%;
+	background-color: #fff;
+}
+.sub-menu ul{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 16px;
+	overflow: hidden;
+}
+.sub-menu ul li{
+	float: left;
+    position: relative;
+    width: 25%;
+    text-align: center;
+    height: 21px;
+    margin: 15px 0;
+    border-right: solid 1px #ccc;
+}
+.sub-menu ul li.active i{
+	display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: #4285f4;
+    position: absolute;
+    top: 10px;
+    left: 65px;
+}
+.sub-menu ul li a{
+	color: #999999;
+	text-decoration: none;
+}
+.sub-menu ul li.active a{
+	color: #4285f4;
+}
+.sub-menu ul li:last-child a{
+	border: 0;
+}
+.sub-menu ul li:last-child{
+	border-right: none;
+}

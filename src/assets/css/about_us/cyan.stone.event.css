@@ -1,0 +1,75 @@
+.container{
+	background-color: #f5f5f5;
+}
+.cyan-event{
+    margin-top: 20px;
+    margin-bottom: 37px;
+}
+.event-info{
+	padding-left: 40px;
+}
+.event-info .title{
+	margin-bottom: 48px;
+	font-size: 20px;
+}
+.event-info ul li{
+	overflow: hidden;
+	font-size: 16px;
+	color: #7e7e7e;
+}
+.event-info ul li div{
+	float: left;
+}
+.event-info ul li div:first-child{
+	width: 120px;
+}
+.event-info ul li .line{
+    position: relative;
+    margin: 0 53px 0 20px; 
+    width: 8px;
+    height: 75px;
+}
+.line i{
+	position: absolute;
+    background-color: #dddddd;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    top: 6px;
+    border-radius: 10px;
+}
+.line span{
+	display: inline-block;
+    background-color: #dddddd;
+    width: 2px;
+    height: 75px;
+    position: absolute;
+    left: 3px;
+}
+.event-info ul li:first-child .line span{
+	top: 8px;
+}
+.event-info ul li.active div:first-child,
+.event-info ul li.active div:last-child{
+	color: #4285f4;
+}
+.event-info ul li.active .line i{
+	background-color: #4285f4;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    left: -3px;
+    top: 3px;
+    opacity: 0.3;
+}
+.event-info ul li.active .line b{
+	position: absolute;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #4285f4;
+    z-index: 3;
+    border-radius: 10px;
+    top: 6px;
+    left: 0px;
+}

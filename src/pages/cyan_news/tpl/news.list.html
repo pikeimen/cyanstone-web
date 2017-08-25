@@ -1,0 +1,43 @@
+<header [activeItem]="3" [transparent]="false"></header>
+<subMenu [activeItem]="activeItem" [menus]="menus" [liWidth]="'25%'"></subMenu>
+   
+<div class="container hasSubMenu">
+    <div class="sub-content">
+	 <div class="content">
+         <div class="news-content">
+             <div class="layout-list" [ngClass]="{'active':layout==1}">
+                 <ul>
+                     <li *ngFor="let new of currentList;let i = index" (click)="goToInfo(i)">
+                         <div class="news-img" >
+                             <i  [ngStyle]="{'background-image':new.imageLink | imageURL}"></i>
+                         </div>
+                         <div class="news-info">
+                             <div class="news-title">{{new.title}}</div>
+                             <div class="news-time">{{new.publishTime|dateFilter:1 }}</div>
+                             <div class="news-cont">
+                                 {{new.digest | digestRender}}
+                            </div>
+                         </div>    
+                     </li>    
+                     
+                 </ul> 
+                 <pageNum *ngIf="currentList.length>0" [totalPage]="totalPage" [currentPage]="currentPage" (pageClick)="selectPage($event)"></pageNum>
+               
+             </div>
+             <div class="layout-box"  [ngClass]="{'active':layout==2}">
+                 <div class="layout-box-top"></div>
+                 <div class="box-list">
+                      <span class="box"  *ngFor="let new of currentList;let i = index" (click)="goToInfo(i)">
+                        <i></i>
+                        <p>{{new.title}}</p>
+                        <p>{{new.publishTime|dateFilter:1 }}</p>
+                      </span>
+                 </div>  
+                 <pageNum  *ngIf="currentList.length>0" [totalPage]="totalPage" [currentPage]="currentPage" (pageClick)="selectPage($event)"></pageNum>
+                 
+             </div>     
+         </div>    
+    </div>
+    <footer [transparent]="false" [footStyle]="{'position':'static'}"></footer>
+    </div>    
+</div>
